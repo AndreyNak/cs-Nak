@@ -1,0 +1,16 @@
+<div>
+  <%= @mode.name %>
+</div>
+<div>
+  <%= @mode.description %>
+</div>
+
+<div>
+  <ul>
+    <% @mode.servers.each do |server| %>
+      <li><%= server.name%> </li>
+      <li><%= server.count_users%> </li>
+      <li><%= server.ip%> </li>
+    <% end %>
+  <ul>
+</div>
