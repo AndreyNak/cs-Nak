@@ -1,10 +1,12 @@
 // @import "variables-css";
 @import "components";
-
+@import "utils";
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
 
 body {
   background-color: #141822;
+  margin: 16px 16px 16px 5.25rem;
+  padding-left: 16px;
 }

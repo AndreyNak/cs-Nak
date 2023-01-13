@@ -9,10 +9,6 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
-  <%= link_to root_path  do %>
-      <%= load_svg('logo.svg') %>
-  <% end %>
   <header class="d-flex align-items-center justify-content-between">
     <div class="d-flex align-items-center">
       <div class="d-flex gap-sm-4 socials mr-1">
@@ -30,7 +26,59 @@
       LOGIN WITH STEAM
     </button>
   </header>
-  <body class="m-3 text-white">
+  <div class="sidenav d-flex flex-column justify-content-between">
+    <div>
+      <%= link_to root_path do %>
+        <%= load_svg('logo.svg') %>
+      <% end %>
+      <span class="count-online">3000</span>
+    </div>
+    <div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('home1.svg') %>
+        </div>
+        <div>Play</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('premium.svg') %>
+        </div>
+        <div>PREMIUM</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('missions-outline-1.svg') %>
+        </div>
+        <div>Missions</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('leaderboard.svg') %>
+        </div>
+        <div>Leaderboard</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('shop.svg') %>
+        </div>
+        <div>Store</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('learn.svg') %>
+        </div>
+        <div>Help</div>
+      </div>
+    </div>
+    <div class="lang">
+      <div>LANGUAGE</div>
+      <div class="lang-icon w-m-1rem">
+        <%= load_svg('en.svg') %>
+      </div>
+    </div>
+  </div>
+  <body class="text-white">
     <%= yield %>
   </body>
 </html>
