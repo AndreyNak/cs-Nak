@@ -1,16 +1,26 @@
 <div>
   <%= @mode.name %>
 </div>
-<div>
-  <%= @mode.description %>
-</div>
 
-<div>
-  <ul>
-    <% @mode.servers.each do |server| %>
-      <li><%= server.name%> </li>
-      <li><%= server.count_users%> </li>
-      <li><%= server.ip%> </li>
+
+<div class="d-flex gap-sm-3 ">
+<% @mode.servers.each do |server| %>
+      <div class="d-flex p-2 justify-content-between horizontal-card">
+        <div>
+          <div class="fs-5"><%= server.name%></div>
+          <div class="fs-6"><%= server.count_users%>/30</div>
+        </div>
+        <%= image_tag "https://cybershoke.net/storage/images/mapsv2/duels_mirage_1x1.jpg"  %>
+        <div>
+          <div class="fs-5">
+            <%= image_tag "https://cloud.cybershoke.net/img/copy.png" %>
+          </div>
+          <div class="fs-5">
+            <%= link_to "steam://connect/46.174.54.179:27023", alt: "connect" do %>
+              <%= image_tag "https://cloud.cybershoke.net/img/play-btn.png" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  <ul>
 </div>

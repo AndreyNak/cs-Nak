@@ -1,0 +1,14 @@
+.horizontal-card {
+  width: 24.6rem;
+  height: 5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  background-color: #262e44;
+  transition: 0.3s linear;
+}
+
+
+.horizontal-card:hover {
+  background-color: #3f4b6b;
+  transition: 0.3s linear;
+}
