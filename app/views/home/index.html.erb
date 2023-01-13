@@ -1,5 +1,17 @@
-
-are your favorite mode ? 
-<% @modes.each do |mode| %>
-  <div><%= link_to mode.name, mode_path(mode.slug) %></div>
-<% end %>
+<div class="my-s">
+  <div class="d-flex gap-sm-3">
+    <% @modes.each do |mode| %>
+        <%= link_to mode_path(mode.slug) { :class => "text-white"} do  %>
+         <div class="tooltipp text-white">
+            <div class="vertical-card">
+              <div><%= mode.name %></div>
+              <div class="fs-5"><%= mode.count_users %> in Game</div>
+              <% if mode.description %>
+                <span class="tooltiptextt"><%= mode.description %></span>
+              <% end%>
+            </div>
+          </div>
+        <% end%>
+    <% end %>
+  </div>
+</div>
