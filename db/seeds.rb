@@ -21,3 +21,9 @@ Mode.create(
     'Each round you play with a new opponent. This is a classic "ladder" in which you need to get to the first place and defeat your opponents',
   servers: Server.limit(2)
 )
+Map.create(
+  name: 'de_mirage2',
+  image: 'https://cybershoke.net/storage/images/mapsv2/de_mirage.jpg'
+)
+
+Server.update_all(map_id: Map.first.id)

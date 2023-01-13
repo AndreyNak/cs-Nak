@@ -2,4 +2,5 @@
 
 class Server < ApplicationRecord
   belongs_to :mode
+  belongs_to :map
 end

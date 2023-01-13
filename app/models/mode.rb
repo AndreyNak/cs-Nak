@@ -4,6 +4,7 @@ class Mode < ApplicationRecord
   extend FriendlyId
 
   has_many :servers, dependent: :destroy
+  has_many :maps, through: :servers
 
   friendly_id :name, use: :slugged
 
