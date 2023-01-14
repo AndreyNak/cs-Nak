@@ -6,6 +6,9 @@
             <div class="vertical-card">
               <div><%= mode.name %></div>
               <div class="fs-5"><%= mode.count_users %> in Game</div>
+              <%  if mode.image %>
+                <%= image_tag mode.image, class: "w-100" %>
+              <% end%>
               <% if mode.description %>
                 <span class="tooltiptextt"><%= mode.description %></span>
               <% end%>
