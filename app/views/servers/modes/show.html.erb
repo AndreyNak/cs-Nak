@@ -1,25 +1,94 @@
-<div class="d-flex gap-sm-3 ">
-  <% @mode.servers.each do |server| %>
-      <div class="d-flex p-2 justify-content-between horizontal-card">
-        <div>
-          <div class="fs-5"><%= server.name%></div>
-          <div class="d-flex gap-sm-2">
-            <%= image_tag "https://cybershoke.net/storage/images/icons-svg/people-outline.svg", class: "fs-1 w-m-1rem" %>
-            <div class=" opacity-50"><%= server.count_users%>/30</div>
-            <div class="opacity-50"><%= server.map.name %></div>
+
+<div>
+  <div class="servers-filter">
+    <div class="d-flex gap-sm-4">
+      <div  class="category d-flex">
+        <div class="title">
+          Category:
+        </div>
+        <div class="select">
+          <div class="title">
+            All
+          </div>
+          <div class="arrow">
+            <%= load_svg('arrow.svg') %>
           </div>
         </div>
-        <%= image_tag server.map.image  %>
-        <div>
-          <div class="fs-5">
-            <%= image_tag "https://cloud.cybershoke.net/img/copy.png" %>
+        <div class="dropdown-content">
+          <div class="item">EASY</div>
+          <div class="item">MEDIUM</div>
+          <div class="item">HARD</div>
+        </div>
+      </div>
+      <div>Location</div>
+      <div  class="category d-flex">
+        <div class="title">
+          Map:
+        </div>
+        <div class="select">
+          <div class="title">
+            All
           </div>
-          <div class="fs-5">
-            <%= link_to "steam://connect/46.174.54.179:27023", alt: "connect" do %>
-              <%= image_tag "https://cloud.cybershoke.net/img/play-btn.png" %>
-            <% end %>
+          <div class="arrow">
+            <%= load_svg('arrow.svg') %>
+          </div>
+        </div>
+        <div class="dropdown-content">
+          <div class="item">
+            <%= image_tag ("https://cybershoke.net/storage/images/png/de_mirage.png"), class: "icon" %>
+            <div>de_mirage</div>
+          </div>
+          <div class="item">
+            <%= image_tag ("https://cybershoke.net/storage/images/png/de_dust2.png"), class: "icon" %>
+            <div>de_dust2</div>
+          </div>
+          <div class="item">
+            <%= image_tag ("https://cybershoke.net/storage/images/png/de_anubis.png"), class: "icon" %>
+            <div>de_anubis</div>
+          </div>
+          <div class="item">
+            <%= image_tag ("https://cybershoke.net/storage/images/png/de_inferno.png"), class: "icon" %>
+            <div>de_inferno</div>
+          </div>
+          <div class="item">
+            <%= image_tag ("https://cybershoke.net/storage/images/png/de_overpass.png"), class: "icon" %>
+            <div>de_overpass</div>
           </div>
         </div>
       </div>
-    <% end %>
+      <div>Prime</div>
+      <div>Empty </div>
+    </div>
+    <div class="d-flex">
+      Search servers
+      <div>
+        actions
+      </div>
+    </div>
+  </div>
+  <div class="d-flex gap-sm-3">
+    <% @mode.servers.each do |server| %>
+        <div class="d-flex p-2 justify-content-between horizontal-card">
+          <div>
+            <div class="fs-5"><%= server.name%></div>
+            <div class="d-flex gap-sm-2">
+              <%= image_tag "https://cybershoke.net/storage/images/icons-svg/people-outline.svg", class: "fs-1 w-m-1rem" %>
+              <div class=" opacity-50"><%= server.count_users%>/30</div>
+              <div class="opacity-50"><%= server.map.name %></div>
+            </div>
+          </div>
+          <%= image_tag server.map.image  %>
+          <div>
+            <div class="fs-5">
+              <%= image_tag "https://cloud.cybershoke.net/img/copy.png" %>
+            </div>
+            <div class="fs-5">
+              <%= link_to "steam://connect/46.174.54.179:27023", alt: "connect" do %>
+                <%= image_tag "https://cloud.cybershoke.net/img/play-btn.png" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
 </div>

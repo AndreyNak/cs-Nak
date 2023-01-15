@@ -3,6 +3,7 @@
   <head>
     <title>CsNak</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,7 +20,7 @@
         <%= image_tag "https://cloud.cybershoke.net/img/socials/youtube.svg", class: "social", alt: "YouTube" %>
       </div>
       <button class="btn btn-warning h-50 mx-4 fs-6">
-        GET PREMIUM
+        <%= t('header.prem_btn') %>
       </button>
     </div>
     <button class="btn btn-primary h-50  mx-4 fs-6">
@@ -42,7 +43,7 @@
       </div>
       <div class="lang">
         <div class="lang-icon w-m-1rem">
-          <%= load_svg('premium.svg') %>
+          <%= load_svg('prem.svg') %>
         </div>
         <div>PREMIUM</div>
       </div>
@@ -78,6 +79,7 @@
       </div>
     </div>
   </div>
+  <%= render 'shared/flash' %>
   <body class="text-white">
     <%= yield %>
   </body>

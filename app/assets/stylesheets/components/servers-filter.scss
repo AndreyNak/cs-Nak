@@ -1,0 +1,64 @@
+.servers-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 35px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #11171f;
+  height: 64px;
+
+  .category {
+    position: relative;
+    cursor: pointer;
+
+    .title {
+      color: #5e6c7e;
+    }
+
+    .select {
+      display: flex;
+      margin-left: 15px;
+      .title {
+        color: #c0dcff;
+      }
+      .arrow {
+        margin-left: 0.5rem;
+      }
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 220px;
+      font-size: 14px;
+      background-color: #11171f;
+      box-shadow: 0 4px 45px rgb(0 0 0 / 25%);
+      padding: 9px 15px;
+      z-index: 1;
+      top: 20px;
+
+      .item {
+        display: flex;
+        align-items: center;
+        height: 33px;
+        color: #5e6c7e;
+        transition: 0.2s linear;
+
+        &:hover {
+          color: white;
+          transition: 0.2s linear;
+        }
+
+        .icon {
+          width: 15px;
+          height: 15px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &:hover .dropdown-content {
+      display: block;
+    }
+  }
+}
