@@ -7,7 +7,14 @@ module Servers
     end
 
     def show
-      @mode = Mode.friendly.find(params[:id])
+      mode = Mode.friendly.find(params[:id])
+
+      servers = ServerFilters.call(mode.servers, params)
+      render locals: {
+        mode:,
+        maps: Map.all,
+        servers:
+      }
     end
   end
 end

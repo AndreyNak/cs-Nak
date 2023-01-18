@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CsNak</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <header class="d-flex bg-dark align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+      <%= link_to "Maps", admin_maps_path, class: "text-decoration-none text-white" %>
+    </div>
+  </header>
+  <div class="sidenav d-flex flex-column justify-content-between">
+    <div>
+      <%= link_to root_path do %>
+        <%= load_svg('logo.svg') %>
+      <% end %>
+      <span class="count-online">3000</span>
+    </div>
+    <div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('home1.svg') %>
+        </div>
+        <div>Play</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('prem.svg') %>
+        </div>
+        <div>PREMIUM</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('missions-outline-1.svg') %>
+        </div>
+        <div>Missions</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('leaderboard.svg') %>
+        </div>
+        <div>Leaderboard</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('shop.svg') %>
+        </div>
+        <div>Store</div>
+      </div>
+      <div class="lang">
+        <div class="lang-icon w-m-1rem">
+          <%= load_svg('learn.svg') %>
+        </div>
+        <div>Help</div>
+      </div>
+    </div>
+    <div class="lang">
+      <div>LANGUAGE</div>
+      <div class="lang-icon w-m-1rem">
+        <%= load_svg('en.svg') %>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/flash' %>
+  <body class="text-white">
+    <%= yield %>
+  </body>
+</html>

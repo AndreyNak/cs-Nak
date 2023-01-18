@@ -4,14 +4,17 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
+
+  namespace :admin do
+    resources :maps
+  end
   root to: redirect('/home')
 
   # get '/*path' => 'home#index'
   get '/home', to: 'home#index'
 
-
   scope module: :servers, path: '/servers' do
     # get '/:slug/', to: 'modes#show'
-    resources :modes,  path: '', only: %i[show]
+    resources :modes, path: '', only: %i[show create]
   end
 end

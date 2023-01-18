@@ -1,0 +1,17 @@
+<div class="mt-5">
+  <%= link_to 'New',  new_admin_map_path %>
+  <table>
+    <% @maps.each do |map| %>
+        <tr>
+          <td>
+            <%= map.name %>
+          </td>
+          <td>
+            <%= link_to admin_map_path(map.id) do %>
+              <%= image_tag map.image, width: '300px', height: "150px" %>
+            <% end%>
+          </td>
+        </tr>
+    <% end%>
+  </table>
+</div>

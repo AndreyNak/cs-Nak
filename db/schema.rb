@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_13_171814) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_121057) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -52,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_171814) do
     t.datetime "updated_at", null: false
     t.bigint "mode_id"
     t.bigint "map_id"
+    t.boolean "prime", default: false, null: false
     t.index ["map_id"], name: "index_servers_on_map_id"
     t.index ["mode_id"], name: "index_servers_on_mode_id"
   end

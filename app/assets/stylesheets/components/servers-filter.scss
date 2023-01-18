@@ -33,20 +33,22 @@
       font-size: 14px;
       background-color: #11171f;
       box-shadow: 0 4px 45px rgb(0 0 0 / 25%);
-      padding: 9px 15px;
+      padding: 9px 0;
       z-index: 1;
       top: 20px;
 
       .item {
         display: flex;
+        padding: 0 15px;
         align-items: center;
         height: 33px;
-        color: #5e6c7e;
-        transition: 0.2s linear;
+        position: relative;
 
         &:hover {
-          color: white;
-          transition: 0.2s linear;
+          .title {
+            color: white;
+            transition: 0.2s linear;
+          }
         }
 
         .icon {
@@ -54,11 +56,79 @@
           height: 15px;
           margin-right: 10px;
         }
+
+        .title {
+          color: #5e6c7e;
+          text-decoration: none;
+          transition: 0.2s linear;
+        }
+
+        .tick {
+          display: none;
+          position: absolute;
+          background-color: #212c3a;
+
+          align-items: center;
+          border-radius: 50%;
+          right: 10px;
+          width: 18px;
+          top: 50%;
+          transform: translateY(-50%);
+          height: 18px;
+          right: 15px;
+        }
+
+        &-checked {
+          background: #161d26;
+
+          .title {
+            color: #6080ff;
+          }
+
+          .tick {
+            display: block;
+          }
+        }
       }
     }
 
     &:hover .dropdown-content {
       display: block;
+    }
+  }
+
+  .prime-switcher {
+    border-radius: 7px;
+
+    .outer-prime {
+      width: 44px;
+      height: 24px;
+      background-color: #2c3f4d;
+      border-radius: 4px 0px 0px 4px;
+      text-align: center;
+      opacity: 0.4;
+
+      .prime {
+        width: 16px;
+      }
+    }
+
+    .outer-non-prime {
+      width: 44px;
+      height: 24px;
+      margin-left: 2px;
+      background-color: #392128;
+      border-radius: 0px 4px 4px 0px;
+      text-align: center;
+      opacity: 0.4;
+
+      .non-prime {
+        width: 16px;
+      }
+    }
+
+    .checked {
+      opacity: 1;
     }
   }
 }

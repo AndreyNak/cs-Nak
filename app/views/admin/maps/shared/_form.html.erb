@@ -1,0 +1,20 @@
+<%= form_with model: [:admin, map] do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    <% map.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+    <% map.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
