@@ -99,6 +99,7 @@
 
   .prime-switcher {
     border-radius: 7px;
+    display: flex;
 
     .outer-prime {
       width: 44px;
@@ -129,6 +130,74 @@
 
     .checked {
       opacity: 1;
+    }
+  }
+
+  .visibility {
+    display: flex;
+
+    .title {
+      margin-right: 15px;
+      color: #5e6c7e;
+    }
+    .switcher {
+      border-radius: 7px;
+      display: flex;
+
+      .outer-visibility {
+        width: 44px;
+        height: 24px;
+        background-color: #2c3f4d;
+        border-radius: 4px 0px 0px 4px;
+        text-align: center;
+        opacity: 0.4;
+
+        .visibility {
+          width: 16px;
+        }
+      }
+
+      .outer-non-visibility {
+        width: 44px;
+        height: 24px;
+        margin-left: 2px;
+        background-color: #2c3f4d;
+        border-radius: 0px 4px 4px 0px;
+        text-align: center;
+        opacity: 0.4;
+
+        .non-visibility {
+          width: 16px;
+        }
+      }
+
+      .checked {
+        opacity: 1;
+        background-color: #6980ff;
+      }
+    }
+  }
+
+  .search {
+    width: 194px;
+    height: 28px;
+    color: #5e6c7e;
+    padding-left: 28px;
+    margin-right: 10px;
+    padding-right: 15px;
+    border: none;
+    border-radius: 6px;
+    background: #141c26 url("https://cloud.cybershoke.net/img/icons/support/search.svg") no-repeat 10px;
+    background-size: 10px 10px;
+
+    &::placeholder {
+      font-weight: 500;
+      font-size: 14px;
+      color: #5e6c7e;
+    }
+
+    &:focus {
+      outline: 2px solid #6980ff;
     }
   }
 }

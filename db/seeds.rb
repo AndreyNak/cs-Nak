@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 30.times do |index|
-  Server.create(ip: "62.1#{index}.213.157:27016", name: "##{index} DM", count_users: 0)
+  Server.create(
+    ip: "62.1#{index}.213.157:27016",
+    name: "##{index} DM",
+    count_users: 0,
+    prime: index.even?
+  )
 end
 
 Mode.create(

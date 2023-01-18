@@ -35,7 +35,7 @@
         </div>
         <div class="dropdown-content">
           <div class="item">
-            <%= link_to "All", mode_path(mode.slug), class: "title" %>
+            <%= link_to "All", params.to_unsafe_h.except(:map), class: "title" %>
           </div>
           <% maps.each do |map| %>
             <%= link_to params.to_unsafe_h.merge({ map: map.name }), class: "text-decoration-none" do %>
@@ -48,7 +48,7 @@
           <% end %>
         </div>
       </div>
-      <div class="prime-switcher d-flex">
+      <div class="prime-switcher">
         <%= link_to params.to_unsafe_h.merge({ prime: 'on' }) do %>
           <%= content_tag :div, class: "outer-prime #{(params[:prime].nil? || params[:prime] == 'on') && 'checked' }" do %>
             <%= image_tag "https://cybershoke.net/storage/images/png/prime.png", class: "prime" %>
@@ -60,10 +60,26 @@
           <% end %>
         <% end %>
       </div>
-      <div>Empty </div>
+      <div class="visibility">
+        <div class="title">Show free servers</div>
+        <div class="switcher">
+          <%= link_to params.to_unsafe_h.merge({ free: 'on' }) do %>
+            <%= content_tag :div, class: "outer-visibility #{(params[:free].nil?  || params[:free] == 'on') && 'checked' }" do %>
+              <%= image_tag "https://cloud.cybershoke.net/img/icons/servers/visible.svg", class: "prime" %>
+            <% end %>
+          <% end %>
+          <%= link_to params.to_unsafe_h.merge({ free: 'off' }) do %>
+            <%= content_tag :div, class: "outer-non-visibility #{params[:free] == 'off' && 'checked' }" do %>
+              <%= image_tag "https://cloud.cybershoke.net/img/icons/servers/invisible.svg", class: "non-visibility" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div class="d-flex">
-      Search servers
+      <%= form_tag mode_path(mode.slug), method: :get do %>
+        <%= text_field_tag :search, params[:search], class: "search", placeholder: "Searching servers..."%>
+      <% end%>
       <div>
         actions
       </div>
@@ -71,7 +87,7 @@
   </div>
   <div class="d-flex gap-sm-3">
     <% servers.each do |server| %>
-        <div class="d-flex p-2 justify-content-between horizontal-card">
+        <%= content_tag :div, class: "d-flex p-2 justify-content-between horizontal-card #{(params[:prime].nil? || params[:prime] == 'on') && 'prime-border'}" do %>
           <div>
             <div class="fs-5"><%= server.name%></div>
             <div class="d-flex gap-sm-2">
@@ -91,7 +107,7 @@
               <% end %>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
   </div>
 </div>
