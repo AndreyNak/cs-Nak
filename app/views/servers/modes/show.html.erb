@@ -12,7 +12,6 @@
         <div class="warning"><%= load_svg('warning.svg') %></div>
         <h1 class="title">NO SERVERS <span>FOUND</span></h1>
         <div class="description">There are no servers according to the specified parameters.</div>
-        <!-- params.to_unsafe_h.except(:map, :prime, :free, :search)  -->
         <%= link_to  params.to_unsafe_h.except(:map, :prime, :free, :search), class: "button" do %>
           <div class="reset"><%= load_svg('reset.svg') %></div>
           <span>DEFAULT</span>

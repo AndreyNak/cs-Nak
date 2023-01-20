@@ -5,49 +5,47 @@
     <% end %>
     <span class="count-online">3000</span>
   </div>
-  <div>
-    <div class="lang">
-      <%= link_to home_path do %>
-        <div class="lang-icon w-m-1rem">
-          <%= load_svg('home1.svg') %>
-        </div>
-        <div>Play</div>
-      <% end %>
-    </div>
-    <div class="lang">
-      <div class="lang-icon w-m-1rem">
+  <div class="d-flex flex-column">
+    <%= link_to home_path, class: "item"  do %>
+      <div class="icon w-m-1rem">
+        <%= load_svg('home1.svg') %>
+      </div>
+      <div>Play</div>
+    <% end %>
+    <%= link_to '#', class: "item"  do %>
+      <div class="icon w-m-1rem">
         <%= load_svg('prem.svg') %>
       </div>
       <div>PREMIUM</div>
-    </div>
-    <div class="lang">
-      <div class="lang-icon w-m-1rem">
+    <% end %>
+    <%= link_to '#', class: "item"  do %>
+      <div class="icon w-m-1rem">
         <%= load_svg('missions-outline-1.svg') %>
       </div>
       <div>Missions</div>
-    </div>
-    <div class="lang">
-      <div class="lang-icon w-m-1rem">
+    <% end %>
+    <%= link_to '#', class: "item"  do %>
+      <div class="icon w-m-1rem">
         <%= load_svg('leaderboard.svg') %>
       </div>
       <div>Leaderboard</div>
-    </div>
-    <div class="lang">
-      <div class="lang-icon w-m-1rem">
+    <% end %>
+    <%= link_to '#', class: "item"  do %>
+      <div class="icon w-m-1rem">
         <%= load_svg('shop.svg') %>
       </div>
       <div>Store</div>
-    </div>
-    <div class="lang">
-      <div class="lang-icon w-m-1rem">
+    <% end %>
+    <%= link_to '#', class: "item"  do %>
+      <div class="icon w-m-1rem">
         <%= load_svg('learn.svg') %>
       </div>
       <div>Help</div>
-    </div>
+    <% end %>
   </div>
-  <div class="lang">
+  <div class="item">
     <div>LANGUAGE</div>
-    <div class="lang-icon w-m-1rem">
+    <div class="icon w-m-1rem">
       <%= load_svg('en.svg') %>
     </div>
   </div>
