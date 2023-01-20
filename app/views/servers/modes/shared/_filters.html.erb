@@ -1,0 +1,85 @@
+<div class="servers-filter">
+  <div class="d-flex gap-sm-4">
+    <div  class="category d-flex">
+      <div class="title">
+        Category:
+      </div>
+      <div class="select">
+        <div class="title">
+          All
+        </div>
+        <div class="arrow">
+          <%= load_svg('arrow.svg') %>
+        </div>
+      </div>
+      <div class="dropdown-content">
+        <div class="item">EASY</div>
+        <div class="item">MEDIUM</div>
+        <div class="item">HARD</div>
+      </div>
+    </div>
+    <div>Location</div>
+    <div  class="category d-flex">
+      <div class="title">
+        Map:
+      </div>
+      <div class="select">
+        <div class="title">
+          <%= params[:map] || 'All' %>
+        </div>
+        <div class="arrow">
+          <%= load_svg('arrow.svg') %>
+        </div>
+      </div>
+      <div class="dropdown-content">
+        <div class="item">
+          <%= link_to "All", params.to_unsafe_h.except(:map), class: "title" %>
+        </div>
+        <% maps.each do |map| %>
+          <%= link_to params.to_unsafe_h.merge({ map: map.name }), class: "text-decoration-none" do %>
+            <%= content_tag :div, class: "item #{params[:map] == map.name ? 'item-checked' : nil}"  do %>
+              <%= image_tag "https://cybershoke.net/storage/images/png/#{map.name}.png", class: "icon" %>
+              <div class="title"><%= map.name %></div>
+              <div class="tick"><%= load_svg("tick.svg")%></div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="prime-switcher">
+      <%= link_to params.to_unsafe_h.merge({ prime: 'on' }) do %>
+        <%= content_tag :div, class: "outer-prime #{(params[:prime].nil? || params[:prime] == 'on') && 'checked' }" do %>
+          <%= image_tag "https://cybershoke.net/storage/images/png/prime.png", class: "prime" %>
+        <% end %>
+      <% end %>
+      <%= link_to params.to_unsafe_h.merge({ prime: 'off' }) do %>
+        <%= content_tag :div, class: "outer-non-prime #{params[:prime] == 'off' && 'checked' }" do %>
+          <%= image_tag "https://cybershoke.net/storage/images/png/no_prime.png", class: "non-prime" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="visibility">
+      <div class="title">Show free servers</div>
+      <div class="switcher">
+        <%= link_to params.to_unsafe_h.merge({ free: 'on' }) do %>
+          <%= content_tag :div, class: "outer-visibility #{(params[:free].nil?  || params[:free] == 'on') && 'checked' }" do %>
+            <%= image_tag "https://cloud.cybershoke.net/img/icons/servers/visible.svg", class: "prime" %>
+          <% end %>
+        <% end %>
+        <%= link_to params.to_unsafe_h.merge({ free: 'off' }) do %>
+          <%= content_tag :div, class: "outer-non-visibility #{params[:free] == 'off' && 'checked' }" do %>
+            <%= image_tag "https://cloud.cybershoke.net/img/icons/servers/invisible.svg", class: "non-visibility" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex">
+    <%= form_tag mode_path(mode.slug), method: :get do %>
+      <%= text_field_tag :search, params[:search], class: "search", placeholder: "Searching servers..."%>
+    <% end%>
+    <div>
+      actions
+    </div>
+  </div>
+</div>

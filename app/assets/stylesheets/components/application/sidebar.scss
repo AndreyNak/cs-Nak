@@ -1,4 +1,4 @@
-.sidenav {
+.sidebar {
   height: 100%;
   width: 5.25rem;
   position: fixed;
@@ -50,6 +50,6 @@
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
 }
