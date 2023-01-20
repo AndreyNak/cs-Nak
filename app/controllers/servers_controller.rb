@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 class ServersController < ApplicationController
-  def index
-    @servers = Server.all
+  def show
+    @server = current_mode.servers.find(params[:id])
   end
 
-  # def show
-  # end
+  private
+
+  def current_mode
+    @current_mode ||= Mode.friendly.find(params[:mode_slug])
+  end
 end

@@ -2,6 +2,6 @@
 
 class HomeController < ApplicationController
   def index
-    @modes = Mode.all
+    @modes = Mode.order(:name)
   end
 end

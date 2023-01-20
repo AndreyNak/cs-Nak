@@ -1,7 +1,7 @@
 <div class="my-s">
   <div class="d-flex gap-sm-3">
     <% @modes.each do |mode| %>
-        <%= link_to mode_path(mode.slug) { :class => "text-white"} do  %>
+        <%= link_to mode_path(mode.slug), class: "text-white" do  %>
          <div class="tooltipp text-white">
             <div class="vertical-card">
               <div><%= mode.name %></div>

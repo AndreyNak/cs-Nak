@@ -1,0 +1,44 @@
+.container {
+  text-align: center;
+
+  .no-found-servers {
+    padding: 70px 0;
+
+    .warning {
+      margin-bottom: 34px;
+    }
+
+    .title {
+      font-size: 25px;
+
+      span {
+        color: #6080ff;
+      }
+    }
+
+    .description {
+      font-size: 20px;
+      margin: 15px 0 38px 0;
+      color: hsla(0,0%,100%,.4);
+    }
+
+    .button {
+      display: -webkit-inline-box;
+      gap: 8px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      background-color: #6080ff;
+      width: 160px;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 36px;
+      transition: 0.2s linear;
+
+      &:hover {
+        background-color: #879df5;
+        transition: 0.2s linear;
+      }
+    }
+  }
+}

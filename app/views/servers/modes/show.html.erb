@@ -1,5 +1,9 @@
-
 <div>
+  <nav class="route-modes">
+    <% modes.each do |mode| %>
+      <%= link_to  mode.name, mode_path(mode.slug), class: "item" %>
+    <% end %>
+  </nav>
   <div class="servers-filter">
     <div class="d-flex gap-sm-4">
       <div  class="category d-flex">
@@ -85,17 +89,31 @@
       </div>
     </div>
   </div>
-  <div class="d-flex gap-sm-3">
-    <% servers.each do |server| %>
+  <% if servers.size.zero? %>
+    <div class="container">
+      <div class="no-found-servers">
+        <div class="warning"><%= load_svg('warning.svg') %></div>
+        <h1 class="title">NO SERVERS <span>FOUND</span></h1>
+        <div class="description">There are no servers according to the specified parameters.</div>
+        <!-- params.to_unsafe_h.except(:map, :prime, :free, :search)  -->
+        <%= link_to  params.to_unsafe_h.except(:map, :prime, :free, :search), class: "button" do %>
+          <div class="reset"><%= load_svg('reset.svg') %></div>
+          <span>DEFAULT</span>
+        <% end%>
+      </div>
+    </div>
+  <% else %>
+    <div class="d-flex gap-sm-3">
+      <% servers.each do |server| %>
         <%= content_tag :div, class: "d-flex p-2 justify-content-between horizontal-card #{(params[:prime].nil? || params[:prime] == 'on') && 'prime-border'}" do %>
-          <div>
-            <div class="fs-5"><%= server.name%></div>
-            <div class="d-flex gap-sm-2">
-              <%= image_tag "https://cybershoke.net/storage/images/icons-svg/people-outline.svg", class: "fs-1 w-m-1rem" %>
-              <div class=" opacity-50"><%= server.count_users%>/30</div>
-              <div class="opacity-50"><%= server.map.name %></div>
-            </div>
-          </div>
+          <%= link_to mode_server_path(mode.slug, server.id), class: "text-decoration-none"  do %>
+            <div class="fs-5 text-white"><%= server.name%></div>
+              <div class="d-flex gap-sm-2 text-white">
+                <%= image_tag "https://cybershoke.net/storage/images/icons-svg/people-outline.svg", class: "fs-1 w-m-1rem" %>
+                <div class="opacity-50"><%= server.count_users%>/30</div>
+                <div class="opacity-50"><%= server.map.name %></div>
+              </div>
+          <% end %>
           <%= image_tag server.map.image  %>
           <div>
             <div class="fs-5">
@@ -109,5 +127,6 @@
           </div>
         <% end %>
       <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

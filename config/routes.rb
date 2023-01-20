@@ -8,13 +8,16 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :maps
   end
-  root to: redirect('/home')
+
+  scope module: :servers, path: '/servers' do
+    resources :modes, param: 'slug', path: '', only: %i[show] do
+      get '/:id/', as: 'server', controller: '/servers', action: 'show'
+    end
+  end
+
+  get 'hoo/:id/', to: 'hoo#show'
 
   # get '/*path' => 'home#index'
   get '/home', to: 'home#index'
-
-  scope module: :servers, path: '/servers' do
-    # get '/:slug/', to: 'modes#show'
-    resources :modes, path: '', only: %i[show create]
-  end
+  root to: 'home#index'
 end

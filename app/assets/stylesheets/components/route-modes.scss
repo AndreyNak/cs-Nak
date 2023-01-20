@@ -1,0 +1,23 @@
+.route-modes {
+  display: flex;
+
+  .item {
+    transition: .3s;
+    border-radius: 8px;
+    color: #aecce4;
+    height: 40px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 41px;
+    text-decoration: none;
+    margin: 3px 2px;
+    padding: 0 16px;
+    text-transform: uppercase;
+    background-color: hsla(0,0%,100%,.05);
+
+    &:hover {
+      color: #6080ff;
+      transition: .3s;
+    }
+  }
+}
