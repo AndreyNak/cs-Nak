@@ -2,8 +2,6 @@
 
 module Admin
   class MapsController < BaseController
-    layout "admin"
-
     def index
       @maps = Map.all
     end

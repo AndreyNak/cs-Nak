@@ -1,4 +1,5 @@
 <div>
+  <%= turbo_frame_tag "server-modal" %>
   <nav class="route-modes">
     <% modes.each do |mode| %>
       <%= link_to  mode.name, mode_path(mode.slug), class: "item" %>
@@ -22,7 +23,7 @@
     <div class="d-flex gap-sm-3">
       <% servers.each do |server| %>
         <%= content_tag :div, data: { controller: "test", action: 'click->test#opp', 'test-name-value': server }, class: "d-flex p-2 justify-content-between horizontal-card #{(params[:prime].nil? || params[:prime] == 'on') && 'prime-border'}" do %>
-          <%= link_to mode_server_path(mode.slug, server.id), class: "text-decoration-none"  do %>
+          <%= link_to mode_server_path(mode.slug, server.id), data: { turbo_frame: 'server-modal' }, class: "text-decoration-none"  do %>
             <div class="fs-5 text-white"><%= server.name%></div>
               <div class="d-flex gap-sm-2 text-white">
                 <%= image_tag "https://cybershoke.net/storage/images/icons-svg/people-outline.svg", class: "fs-1 w-m-1rem" %>

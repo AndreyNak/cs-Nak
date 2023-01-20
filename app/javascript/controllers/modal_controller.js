@@ -5,16 +5,20 @@ export default class extends Controller {
   connect() {
     let modal = document.getElementById("myModal");
     let span = document.getElementsByClassName("close")[0];
+    const body = document.querySelector("body");
+    body.style.overflow = "hidden";
 
     modal.style.display = "block";
 
     span.onclick = function() {
-      window.location.href = window.location.pathname.replace(/[0-9]/g, '')
+      modal.style.display = "none";
+      body.style.overflow = "auto";
     }
 
     window.onclick = function(event) {
       if (event.target == modal) {
-        window.location.href = window.location.pathname.replace(/[0-9]/g, '')
+        modal.style.display = "none";
+        body.style.overflow = "auto";
       }
     }
   }

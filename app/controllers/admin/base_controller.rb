@@ -2,6 +2,6 @@
 
 module Admin
   class BaseController < ApplicationController
-    layout 'admin'
+    layout -> { turbo_frame_request? ? false : 'admin' }
   end
 end
