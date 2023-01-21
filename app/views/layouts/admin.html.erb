@@ -18,8 +18,8 @@
   <%= render "shared/sidebar" %>
   <%= render 'shared/flash' %>
   <body class="main">
+    <%= turbo_frame_tag "modal" %>
     <div class="wrap">
-      <%= turbo_frame_tag "modal" %>
       <%= yield %>
       <%= render "shared/footer" %>
     </div>

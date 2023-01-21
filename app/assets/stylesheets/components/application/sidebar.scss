@@ -9,11 +9,16 @@
   overflow-x: hidden;
   padding: 20px 5px;
 
-  .count-online {
-    color: white;
-    padding: 0 15px;
-    font-size: 13px;
+
+  .logo {
+    text-align: center;
+    .count-online {
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+    }
   }
+
 
   .item {
     font-size: 12px;

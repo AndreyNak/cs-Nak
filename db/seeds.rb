@@ -1,43 +1,27 @@
 # frozen_string_literal: true
 
-mode_data = [
-  {
-    name: 'DM',
-    description: 'Classic shooting practice mode. Instant respawn after deat',
-    image: 'DM.jpg'
+require_relative 'seeds/data'
 
-  },
-  {
-    name: 'Knife',
-    description: 'Thematic maps for training the game with a knife',
-    image: 'KNIFE.jpg'
-   },
-  {
-    name: 'Arena',
-    description: 'Each round you play with a new opponent. This is a classic "ladder" in which you need to get to the first place and defeat your opponents',
-    image: 'ARENA.jpg'
-  }
-]
+maps_data.each { |params| Map.create(params) }
 
-map = Map.create(
-  name: 'de_dust2',
-  image: 'https://cybershoke.net/storage/images/mapsv2/de_dust2.jpg'
-)
-
-mode_data.each do |i|
-  mode = Mode.create(
-    name: i[:name],
-    description: i[:description],
-    image: i[:image]
-  )
-  3.times do |index|
+mode_data.each do |params|
+  mode = Mode.create(params)
+  (1..3).each do |index|
     Server.create(
       ip: "62.1#{index}.213.157:27016",
-      name: "##{index} DM",
-      count_users: 0,
+      name: "##{index} #{mode.name}",
+      count_users: rand(30),
       prime: index.even?,
       mode:,
-      map:
+      map: Map.find(index)
     )
   end
+  Server.create(
+    ip: '62.15.213.157:27016',
+    name: '#5 DM',
+    count_users: Server::FULL_COUNT_SERVER,
+    prime: rand(2).zero?,
+    mode:,
+    map: Map.find(Map.pluck(:id).sample)
+  )
 end

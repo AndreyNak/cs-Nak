@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_18_121057) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_21_124013) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_121057) do
     t.boolean "prime", default: false, null: false
     t.index ["map_id"], name: "index_servers_on_map_id"
     t.index ["mode_id"], name: "index_servers_on_mode_id"
+    t.index ["name"], name: "index_servers_on_name"
   end
 
   add_foreign_key "servers", "maps"
