@@ -2,6 +2,8 @@
 
 require_relative 'seeds/data'
 
+default_user_password = 'Password123??'
+
 maps_data.each { |params| Map.create(params) }
 
 mode_data.each do |params|

@@ -3,18 +3,32 @@
 module Admin
   class MapsController < BaseController
     def index
+      authorize Map
+
       @maps = Map.all
     end
 
     def show
+      authorize Map
+
       @map = Map.find(params[:id])
     end
 
     def new
+      authorize Map
+
       @map = Map.new
     end
 
+    def edit
+      authorize Map
+
+      @map = Map.find(params[:id])
+    end
+
     def create
+      authorize Map
+
       @map = Map.new(maps_params)
       if @map.save
         redirect_to admin_maps_path
@@ -23,11 +37,9 @@ module Admin
       end
     end
 
-    def edit
-      @map = Map.find(params[:id])
-    end
-
     def update
+      authorize Map
+
       @map = Map.find(params[:id])
 
       if @map.update(maps_params)

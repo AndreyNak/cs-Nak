@@ -1,0 +1,5 @@
+<nav class="route-modes">
+  <% modes.each do |mode| %>
+    <%= link_to  mode.name, mode_path(mode.slug), class: "item #{'active' if params[:slug] == mode.name.downcase}" %>
+  <% end %>
+</nav>

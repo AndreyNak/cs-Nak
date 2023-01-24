@@ -1,0 +1,53 @@
+.error-page {
+  text-align: center;
+  height: 100vh;
+  margin: auto 0;
+  background: url("https://cloud.cybershoke.net/img/404-bg.png")
+  center center / cover no-repeat;
+
+
+  .error {
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .code {
+      font-weight: 900;
+      font-size: 200px;
+      line-height: 234px;
+      letter-spacing: 0.02em;
+      color: rgb(241, 243, 255);
+      opacity: 0.5;
+    }
+
+    .title {
+      margin-bottom: 18px;
+      font-weight: 900;
+      font-size: 45px;
+      letter-spacing: 0.02em;
+      color: rgb(241, 243, 255);
+    }
+
+    .text {
+      margin: 0 auto;
+      text-align: center;
+      font-size: 18px;
+      line-height: 29px;
+      color: rgb(175, 183, 198);
+      width: 430px;
+    }
+
+    .button {
+      background: rgb(96, 128, 255);
+      border-radius: 7px;
+      color: white;
+      padding: 18px 83px;
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: 37px;
+      margin-bottom: 50px;
+    }
+  }
+}

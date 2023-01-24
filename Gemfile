@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
-# auth
+# Authentication
 gem 'devise'
 
 gem 'friendly_id', '~> 5.4.0'
@@ -21,6 +21,8 @@ gem 'sprockets-rails'
 gem 'cssbundling-rails', '~> 1.1'
 gem 'jsbundling-rails', '~> 1.1'
 
+# Authorization
+gem 'pundit', '~> 2.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 

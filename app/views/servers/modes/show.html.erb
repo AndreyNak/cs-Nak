@@ -1,10 +1,6 @@
 <div>
   <%= turbo_frame_tag "server-modal" %>
-  <nav class="route-modes">
-    <% modes.each do |mode| %>
-      <%= link_to  mode.name, mode_path(mode.slug), class: "item" %>
-    <% end %>
-  </nav>
+  <%= render partial: "servers/modes/shared/servers-routing", locals: { modes: } %>
   <%= render partial: "servers/modes/shared/filters", locals: { maps:, mode:, modes:, servers: } %>
   <% if servers.size.zero? %>
     <div class="container">
