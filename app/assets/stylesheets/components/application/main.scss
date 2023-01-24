@@ -3,4 +3,24 @@ body.main {
   margin: 16px 16px 16px 5.25rem;
   padding-left: 16px;
   color: white;
+
+  .link {
+    color: gray;
+    transition: 0.3s linear;
+    text-decoration: none;
+
+    &-prime {
+      color:  #6080ff;
+
+      &:hover {
+        color:  #98acfa;
+        transition: 0.3s linear;
+      }
+    }
+
+    &:hover {
+      color: white;
+      transition: 0.3s linear;
+    }
+  }
 }

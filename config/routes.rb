@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  devise_for :users
 
   namespace :admin do
     resources :maps
@@ -14,8 +12,6 @@ Rails.application.routes.draw do
       get '/:id/', as: 'server', controller: '/servers', action: 'show'
     end
   end
-
-  get 'hoo/:id/', to: 'hoo#show'
 
   # get '/*path' => 'home#index'
   get '/home', to: 'home#index'

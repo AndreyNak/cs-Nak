@@ -1,0 +1,61 @@
+.user {
+  text-align: center;
+  margin: auto 0;
+
+  .new_user, .edit_user {
+    width: 600px;
+    margin: 0 auto;
+
+    input {
+      color: white;
+      width: 600px;
+      height: 40px;
+      padding-left: 14px;
+      padding-right: 15px;
+      border: 1px solid  #6980ff;
+      border-radius: 6px;
+      background-color: #141c26;
+      background-size: 10px 10px;
+
+
+      &::placeholder {
+        font-weight: 500;
+        font-size: 16px;
+        color: #5e6c7e;
+      }
+
+      &:focus {
+        outline: 2px solid #6980ff;
+      }
+    }
+
+    .remember {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      margin-top: 10px;
+
+      input[type=checkbox] {
+        height: 15px;
+        width: 15px;
+        margin-right: 10px;
+        text-align: start;
+      }
+    }
+
+    .submit {
+      font-weight: 500;
+      background-color: #6080ff;
+      margin-top: 10px;
+      border: none;
+
+      &:hover {
+        background-color: #455cbb;
+      }
+    }
+  }
+
+  .links {
+    margin-top: 20px;
+  }
+}
