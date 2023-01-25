@@ -8,7 +8,12 @@ ruby '3.1.1'
 # Authentication
 gem 'devise'
 
+# 'Editor posts'
+gem 'ckeditor'
+
 gem 'friendly_id', '~> 5.4.0'
+
+gem 'mini_magick'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'

@@ -1,0 +1,118 @@
+.learn-show {
+  h1 {
+    font-weight: 900;
+    display: inline-block;
+    font-size: 25px;
+    text-transform: uppercase;
+  }
+
+  .date {
+    color: #888b8f;
+  }
+
+  .content {
+    padding-bottom: 15px;
+    padding-top: 20px;
+    counter-reset: number 0;
+
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 26px;
+      color: #888b8f;
+    }
+
+    span {
+      padding: 4px;
+      background: #18202b;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #5c6bc0
+    }
+
+
+    h5 {
+      font-weight: 500;
+      font-size: 16px;
+      padding-top: 10px;
+      opacity: .7;
+      margin-bottom: 12px;
+    }
+
+    ol {
+      margin: 25px 0;
+      counter-reset: number 0;
+
+      li {
+        position: relative;
+        transition: none;
+        list-style: none;
+        outline: none;
+        padding-left: 40px;
+        font-size: 14px;
+        line-height: 26px;
+        color: #888b8f;
+
+        &:before {
+          counter-increment: number;
+          content: counter(number);
+          font-size: 14px;
+          background: 0 0;
+          font-weight: 500;
+          color: white;
+          background: #19212c;
+          border-radius: 4px;
+          text-align: center;
+          display: block;
+          margin-right: 12px;
+          padding: 3px 7px;
+          top: 2px;
+          border: none;
+          position: absolute;
+          left: 0;
+          height: auto;
+          width: auto;
+          line-height: 16px;
+          margin-bottom: 5px;
+        }
+
+        &:not(:last-of-type) {
+          margin-bottom: 18px;
+        }
+      }
+    }
+
+    ul {
+
+      position: relative;
+      font-size: 14px;
+      line-height: 26px;
+      color: #888b8f;
+
+      li {
+        position: relative;
+        padding-left: 6px;
+        font-size: 14px;
+        line-height: 26px;
+        color: #888b8f;
+
+        &:not(:last-of-type) {
+          margin-bottom: 18px;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      margin: 40px 0;
+    }
+  }
+}

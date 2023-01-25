@@ -8,4 +8,8 @@ module ApplicationHelper
   rescue Errno::ENOENT
     nil
   end
+
+  def date_format(date)
+    date.strftime('%B, %d %Y')
+  end
 end

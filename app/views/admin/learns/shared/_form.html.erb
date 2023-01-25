@@ -1,0 +1,19 @@
+<%= form_with model: [:admin, learn] do |f| %>
+  <div>
+    <%= f.label :title%><br>
+    <%= f.text_field :title, size: '50'  %>
+    <% learn.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= f.label :content %><br>
+    <%= f.cktext_area :content, cols: 40, ckeditor: { toolbar: 'max' } %>
+    <% learn.errors.full_messages_for(:content).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

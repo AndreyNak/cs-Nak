@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   devise_for :users
 
   namespace :admin do
     resources :maps
+    resources :learns
   end
 
   scope module: :servers, path: '/servers' do
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
       get '/:id/', as: 'server', controller: '/servers', action: 'show'
     end
   end
+
+  resources :learns, only: %i[index show]
 
   # get '/*path' => 'home#index'
   get '/home', to: 'home#index'

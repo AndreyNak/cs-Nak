@@ -1,0 +1,96 @@
+.learns {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(https://cloud.cybershoke.net/img/bg/support.png) no-repeat 50%/cover;
+    padding: 67px 0 76px;
+
+    h5 {
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: #6080ff;
+    }
+
+    h2 {
+      font-weight: 900;
+      font-size: 39px;
+      line-height: 46px;
+      margin: 8px 0 27px;
+      text-transform: uppercase;
+    }
+
+    .search {
+      width: 401px;
+      height: 48px;
+      font-size: 14px;
+      color: #576375;
+      padding: 0 25px;
+      border: none;
+      border-radius: 6px;
+      background: #141c26 url("https://cloud.cybershoke.net/img/icons/support/search.svg") no-repeat 10px;
+      background-size: 10px 10px;
+
+      &::placeholder {
+        font-size: 14px;
+        color: #5e6c7e;
+      }
+
+      &:focus {
+        outline: 2px solid #6980ff;
+      }
+    }
+  }
+
+  .body {
+    margin-top: 35px;
+    padding: 0 150px;
+    display: flex;
+
+    .menu {
+      width: 345px;
+      min-width: 345px;
+      margin-right: 25px;
+      padding: 33px 22px;
+      background: #11171f;
+      border-radius: 4px;
+
+      h4 {
+        font-size: 14px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 15px;
+        margin-left: 11px;
+      }
+
+      ul {
+        margin-bottom: 0;
+
+        .category {
+          list-style: none;
+          outline: none;
+
+          .title {
+            cursor: pointer;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            font-family: roboto,sans-serif;
+            font-size: 14px;
+            color: #d7d9dc;
+          }
+        }
+      }
+    }
+
+    .lessons {
+      background: #11171f;
+      border-radius: 4px;
+      padding: 45px 47px;
+      width: 100%;
+    }
+  }
+}
