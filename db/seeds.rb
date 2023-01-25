@@ -1,10 +1,15 @@
 # frozen_string_literal: true
 
 require_relative 'seeds/data'
+require_relative 'seeds/utils'
 
-default_user_password = 'Password123??'
+generate_user
+generate_lessons
 
-maps_data.each { |params| Map.create(params) }
+maps_data.each do |params|
+  map = Map.create(params)
+  map.main_image.attach(io: File.open("app/assets/images/#{map.name}.jpg"), filename: "#{map.name}.jpg")
+end
 
 mode_data.each do |params|
   mode = Mode.create(params)

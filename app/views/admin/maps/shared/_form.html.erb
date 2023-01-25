@@ -6,11 +6,10 @@
       <div><%= message %></div>
     <% end %>
   </div>
-
   <div>
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
-    <% map.errors.full_messages_for(:image).each do |message| %>
+    <%= f.label :main_image %><br>
+    <%= f.file_field :main_image %>
+    <% map.errors.full_messages_for(:main_image).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>

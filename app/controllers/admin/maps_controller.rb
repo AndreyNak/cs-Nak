@@ -52,7 +52,7 @@ module Admin
     private
 
     def maps_params
-      params[:map].permit(:name, :image)
+      params[:map].permit(:name, :main_image)
     end
   end
 end

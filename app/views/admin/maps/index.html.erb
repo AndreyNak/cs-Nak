@@ -6,11 +6,13 @@
           <td>
             <%= map.name %>
           </td>
-          <td>
-            <%= link_to admin_map_path(map.id) do %>
-              <%= image_tag map.image, width: '300px', height: "150px" %>
-            <% end%>
-          </td>
+          <% if map.main_image.attached? %>
+            <td>
+              <%= link_to admin_map_path(map.id) do %>
+                <%= image_tag map.main_image,  width: '300px', height: "150px" %>
+              <% end%>
+            </td>
+          <% end %>
         </tr>
     <% end%>
   </table>
