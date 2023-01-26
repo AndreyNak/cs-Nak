@@ -1,2 +1,0 @@
-class Learn < ApplicationRecord
-end

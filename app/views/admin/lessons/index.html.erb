@@ -1,0 +1,12 @@
+<div class="mt-5">
+  <%= link_to 'New',  new_admin_lesson_path %>
+  <table class="mt-5">
+    <% @lessons.each do |lesson| %>
+        <tr>
+          <td>
+            <%= link_to lesson.title, admin_lesson_path(lesson.id) %>
+          </td>
+        </tr>
+    <% end%>
+  </table>
+</div>

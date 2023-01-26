@@ -4,7 +4,7 @@ require_relative 'data'
 
 def generate_lessons
   lessons_data.each do |params|
-    Learn.create(params)
+    Lesson.create(params)
   end
 end
 

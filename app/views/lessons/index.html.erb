@@ -1,8 +1,8 @@
-<div class="learns">
+<div class="lessons">
   <div class="header">
     <h5>FIND THE ANSWER TO ANY QUESTION</h5>
     <h2>SUPPORT CENTER</h2>
-    <%= form_tag  learns_path, method: :get do %>
+    <%= form_tag  lessons_path, method: :get do %>
       <%= text_field_tag :search, params[:search], class: "search", placeholder: "Enter your question or keyword…"%>
     <% end%>
   </div>
@@ -28,18 +28,18 @@
       </ul>
     </div>
     <div class="lessons">
-      <% if @learns.size.zero? %>
+      <% if @lessons.size.zero? %>
         <h4>ON REQUEST "<%= params[:search] %>" NOTHING FOUND</h4>
       <% else %>
-        <% @learns.each do |learn| %>
+        <% @lessons.each do |lesson| %>
           <div class="mt-5">
-            <div class="mt-5 learn-show">
+            <div class="mt-5 lesson-show">
               <div class="d-flex justify-content-between align-items-center">
-                <h1 class="title"><%= learn.title %></h1>
-                <span class="date"><%= date_format(learn.created_at) %></span>
+                <h1 class="title"><%= lesson.title %></h1>
+                <span class="date"><%= date_format(lesson.created_at) %></span>
               </div>
               <div class="content">
-                <%= sanitize learn.content %>
+                <%= sanitize lesson.content %>
               </div>
             </div>
           </div>

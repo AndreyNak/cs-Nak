@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :maps
-    resources :learns
+    resources :lessons
   end
 
   scope module: :servers, path: '/servers' do
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :learns, only: %i[index show]
+  resources :lessons, only: %i[index show]
 
   # get '/*path' => 'home#index'
   get '/home', to: 'home#index'

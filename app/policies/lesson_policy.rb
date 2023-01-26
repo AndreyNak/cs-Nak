@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class LearnPolicy < ApplicationPolicy
+class LessonPolicy < ApplicationPolicy
   def index?
     login? && user.user_role.admin?
   end

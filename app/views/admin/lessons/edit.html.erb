@@ -1,0 +1,7 @@
+<div>
+  <h1>
+    Edit
+  </h1>
+  <h3><%= link_to "< Back", admin_lesson_path(@lesson), class: "text-decoration-none text-white" %></h3>
+  <%= render "admin/lessons/shared/form", lesson: @lesson %>
+</div>

@@ -14,3 +14,7 @@ Layout/LineLength:
 Metrics/MethodLength:
   Exclude:
     - 'db/seeds/data.rb'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - db/migrate/*
