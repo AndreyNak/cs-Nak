@@ -1,5 +1,6 @@
 require:
   - rubocop-rails
+  - rubocop-rspec
 
 AllCops:
   NewCops: enable
@@ -14,6 +15,7 @@ Layout/LineLength:
 Metrics/MethodLength:
   Exclude:
     - 'db/seeds/data.rb'
+    -  'spec/**/*.rb'
 
 Style/FrozenStringLiteralComment:
   Exclude:
