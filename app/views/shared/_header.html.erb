@@ -12,10 +12,61 @@
     </button>
   </div>
 
-  <% if user_signed_in? %>
-    <%= button_to  "Sign out", destroy_user_session_path, data: { turbo_confirm: "Are you sure?" }, method: :delete %>
-  <% else %>
-
-    <%= button_to 'LOGIN WITH STEAM', new_user_session_path, class: "btn btn-primary h-50  mx-4 fs-6" %>
-  <% end %>
+  <div class="user">
+    <% if user_signed_in? %>
+      <div class="d-flex gap-sm-3">
+        <div class="d-flex align-items-center">
+          <span>0</span>
+          <div class="ms-2"><%= load_svg('diamond')%></div>
+        </div>
+        <div>
+          <%= button_to '+ DEPOSIT', '#', class: "btn btn-primary h-50 fs-6" %>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="ms-2"><%= load_svg('notifications')%></div>
+        </div>
+        <div class="profile" data-controller="popper" data-action="click->popper#open">
+          <div class="popper" id="popper">
+            <div>avatar</div>
+            <div id="arrow" class="ms-2 arrow"><%= load_svg('arrow')%></div>
+          </div>
+          <div class="menu" id="menu">
+            <div class="header">
+              <div class="avatar">
+              </div>
+              <div class="info">
+                <span class="nick">Null</span>
+                <span class="text">Go to profile</span>
+              </div>
+            </div>
+            <div class="catalog">
+              <div>
+                <%= load_svg('inventory') %>
+                <span>Inventory</span>
+              </div>
+              <div>
+                <%= load_svg('skinchanger') %>
+                <span>SKINCHANGER</span>
+              </div>
+              <div>
+                <%= load_svg('profile') %>
+                <span>Achievements</span>
+              </div>
+              <div>
+                <%= load_svg('settings') %>
+                <span>Settings</span>
+              </div>
+              <hr>
+              <div class="logout">
+                <%= load_svg('logout') %>
+                <%= button_to  "Log out", destroy_user_session_path, data: { turbo_confirm: "Are you sure?" }, class: 'text', method: :delete %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <%= button_to 'LOGIN WITH STEAM', new_user_session_path, class: "btn btn-primary h-50  mx-4 fs-6" %>
+    <% end %>
+  </div>
 </header>

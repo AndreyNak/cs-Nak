@@ -5,7 +5,6 @@
 import { application } from "./application"
 
 import ModalController from "./modal_controller"
-import TestController from "./test_controller"
-
+import PopperController from "./popper_controller"
 application.register("modal", ModalController)
-application.register("test", TestController)
+application.register("popper", PopperController)

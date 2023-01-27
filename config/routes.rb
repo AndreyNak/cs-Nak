@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   namespace :admin do
     resources :maps
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :profiles, only: %i[show]
   resources :lessons, only: %i[index show]
 
   # get '/*path' => 'home#index'

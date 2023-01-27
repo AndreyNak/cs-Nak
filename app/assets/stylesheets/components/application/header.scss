@@ -1,4 +1,7 @@
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 60px;
 
   .socials {
@@ -9,6 +12,159 @@ header {
     display: flex;
     align-items: center;
     max-width: 16px;
+  }
+
+  .user {
+    align-items: center;
+    padding-right: 30px;
+
+    .profile {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .popper  {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        .arrow {
+          margin-left: 0.5rem;
+          transition: 0.3s;
+          transform: rotate(0deg);
+        }
+
+        .arrow.active {
+          transition: 0.3s;
+          transform: rotate(-180deg);
+        }
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        background-color: #11151d;
+        border-radius: 12px;
+        width: 256px;
+
+        top: 50px;
+        left: -156px;
+        z-index: 5;
+
+        .header {
+          display: flex;
+          border-radius: 12px;
+          align-items: center;
+          padding: 18px 24px;
+          background: #141a23;
+
+          .avatar {
+            width: 32px;
+            height: 32px;
+            background: #2f3a4b;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+
+          .info {
+            display: flex;
+            flex-direction: column;
+            max-width: 130px;
+
+            .nick {
+              font-weight: 500;
+              font-size: 14px;
+              text-align: start;
+              letter-spacing: .01em;
+              color: #c7cbd6;
+              transition: color .2s ease;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              max-width: 100%;
+            }
+
+            .text {
+              font-size: 14px;
+              font-weight: 400;
+              letter-spacing: .01em;
+              color: #959baa;
+              transition: all .3s ease;
+            }
+          }
+
+          &:hover {
+            .info {
+              .nick {
+                color: white
+              }
+
+              .text {
+                color: #d4dcf0;
+              }
+            }
+          }
+        }
+
+        .catalog {
+          padding: 12px;
+
+          & > * {
+            cursor: pointer;
+            padding: 12px 8px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.01em;
+            font-weight: 300;
+            color: rgb(119, 133, 151);
+            transition: all 0.1s ease 0s;
+            font-size: 14px;
+
+            &:hover:not(:last-child) {
+              background: #141a23;
+            }
+
+            svg {
+              width: 18px;
+            }
+
+            span {
+              margin-left: 10px;
+            }
+          }
+
+          hr {
+            padding: 0;
+            margin: 6px;
+            opacity: 0.1;
+          }
+
+          .logout {
+            .text {
+              border: none;
+              background: none;
+              color: rgb(119, 133, 151);
+            }
+
+            svg {
+              opacity: 0.5;
+            }
+
+            &:hover {
+              .text {
+                color: #d4dcf0;
+              }
+
+              svg {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      .menu.active {
+        display: block;
+      }
+    }
   }
 }
 

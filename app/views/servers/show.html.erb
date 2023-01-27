@@ -2,26 +2,26 @@
   <div data-controller="modal">
     <div id="myModal" class="server-modal">
       <div id="cope-message" class="copy-message">
-        <div><%= load_svg("blue-tick.svg") %></div>
+        <div><%= load_svg("blue-tick") %></div>
         <div class="title">Server address copied</div>
       </div>
       <div class="window">
         <%= image_tag @server.map.main_image, class:  "bg-image" %>
         <div>
-          <span class="close"><%= load_svg("close-modal.svg")%></span>
+          <span class="close"><%= load_svg("close-modal")%></span>
         </div>
         <div class="info">
           <div class="header">
             <div class="t-side">
               <span>CT</span>
               <div class="title">
-                <%= load_svg("ct-side.svg") %>
+                <%= load_svg("ct-side") %>
               </div>
             </div>
             <div class="game-info">
               <h1><%= score_game(@server.win_round_ct, @server.win_round_t) %></h1>
               <div class="timer">
-                <%= load_svg("timer.svg")%>
+                <%= load_svg("timer")%>
                 <span>1:00</span>
               </div>
             </div>
@@ -123,12 +123,12 @@
           <div class="footer">
             <div class="copy" data-action="click->modal#copy">
               <div class="me-2">
-                <%= load_svg("copy.svg") %>
+                <%= load_svg("copy") %>
               </div>
               <span id="server-ip" class="title"><%= @server.ip %></span>
             </div>
             <%= link_to "steam://connect/#{@server.ip}", class: "connect", alt: "connect" do %>
-            <div class="steam-logo"><%= load_svg("steam-logo.svg") %></div>
+            <div class="steam-logo"><%= load_svg("steam-logo") %></div>
               <div>Join the server</div>
             <% end %>
           </div>

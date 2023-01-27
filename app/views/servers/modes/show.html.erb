@@ -5,11 +5,11 @@
   <% if servers.size.zero? %>
     <div class="container">
       <div class="no-found-servers">
-        <div class="warning"><%= load_svg('warning.svg') %></div>
+        <div class="warning"><%= load_svg('warning') %></div>
         <h1 class="title">NO SERVERS <span>FOUND</span></h1>
         <div class="description">There are no servers according to the specified parameters.</div>
         <%= link_to  params.to_unsafe_h.except(:map, :prime, :free, :search), class: "button" do %>
-          <div class="reset"><%= load_svg('reset.svg') %></div>
+          <div class="reset"><%= load_svg('reset') %></div>
           <span>DEFAULT</span>
         <% end%>
       </div>

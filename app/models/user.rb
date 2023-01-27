@@ -8,4 +8,6 @@ class User < ApplicationRecord
          :trackable
 
   belongs_to :user_role
+
+  has_one :profile, dependent: :destroy
 end

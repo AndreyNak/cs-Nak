@@ -13,10 +13,13 @@ def generate_user
 
   role = UserRole.create(name: 'admin')
 
-  User.create(
+  user = User.new(
     emain: 'email.admin@gmail.com',
     user_role: role,
     password: default_user_password,
     password_confirmation: default_user_password
   )
+
+  user.create_profile(nickname: 'Null', place: 1)
+  user.save
 end

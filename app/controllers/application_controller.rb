@@ -3,6 +3,8 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
+  helper_method :profile
+
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: ->(e) { server_error(e) }
     rescue_from Pundit::NotAuthorizedError, with: ->(e) { not_found(e) }
@@ -25,5 +27,9 @@ class ApplicationController < ActionController::Base
     Rails.logger.warn exeption
     Rails.logger.warn 'EXEPTION!' * 10
     render template: "errors/#{status}", layout: 'application', status:
+  end
+
+  def profile
+    current_user.profile
   end
 end

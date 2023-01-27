@@ -5,7 +5,7 @@ module Admin
     def index
       authorize Map
 
-      @maps = Map.all
+      @maps = Map.includes([main_image_attachment: :blob]).all
     end
 
     def show

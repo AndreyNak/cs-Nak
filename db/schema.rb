@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_26_132917) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_125908) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,6 +87,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_132917) do
     t.index ["slug"], name: "index_modes_on_slug", unique: true
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.integer "place", null: false
+    t.string "country"
+    t.integer "elo", default: 500, null: false
+    t.float "kd", default: 0.0, null: false
+    t.integer "kills", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "servers", force: :cascade do |t|
     t.string "name", null: false
     t.string "ip", limit: 20, null: false
@@ -130,6 +143,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_132917) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "profiles", "users"
   add_foreign_key "servers", "maps"
   add_foreign_key "servers", "modes"
   add_foreign_key "users", "user_roles"
