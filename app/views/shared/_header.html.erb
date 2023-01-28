@@ -34,10 +34,10 @@
             <div class="header">
               <div class="avatar">
               </div>
-              <div class="info">
+              <%= link_to profile_path(profile.id), class: 'info' do %>
                 <span class="nick">Null</span>
                 <span class="text">Go to profile</span>
-              </div>
+              <% end %>
             </div>
             <div class="catalog">
               <div>
