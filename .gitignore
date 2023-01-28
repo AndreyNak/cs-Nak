@@ -8,6 +8,9 @@
 
 .byebug_history
 
+# Test coverage
+/coverage
+
 # Ignore bundler config.
 /.bundle
 
