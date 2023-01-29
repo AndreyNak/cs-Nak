@@ -1,21 +1,36 @@
 <div>
+  <div>
+    <span>Nick: <%= profile.nickname  %></span>
+  </div>
+  <div>
+    <span>Place: <%= profile.place %></span>
+  </div>
+  <div>
+    <span>Country: <%= profile.country  %></span>
+  </div>
+  <div>
+    <span>Elo: <%= profile.elo  %></span>
+  </div>
+  <div>
+    <span>K/D: <%= profile.kd %></span>
+  </div>
+  <div>
+    <span>Kills: <%= profile.kills  %></span>
+  </div>
 
-  <div>
-    <span>Nick: <%= @profile.nickname  %></span>
+  <%= link_to 'Friends', profile_friends_path(profile) %>
+  <div class="d-flex">
+    <div>
+      Dont have friends ? Find them ->
+    </div>
+    <%= link_to 'Find', profile_find_friens_path(current_profile.id) %>
   </div>
-  <div>
-    <span>Place: <%= @profile.place %></span>
-  </div>
-  <div>
-    <span>Country: <%= @profile.country  %></span>
-  </div>
-  <div>
-    <span>Elo: <%= @profile.elo  %></span>
-  </div>
-  <div>
-    <span>K/D: <%= @profile.kd %></span>
-  </div>
-  <div>
-    <span>Kills: <%= @profile.kills  %></span>
-  </div>
+
+  <% if policy(profile).friendship? %>
+    <%= button_to 'Add request friendship', friendship_profile_path(profile.id),  method: :post %>
+  <% elsif policy(profile).edit? %>
+    <%= button_to 'Edit Profile', edit_profile_path(profile.id), method: :get  %>
+  <% else %>
+    <%= button_to 'Request has been sent', '#',  disabled: true %>
+  <% end %>
 </div>

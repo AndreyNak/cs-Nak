@@ -1,0 +1,12 @@
+<div>
+  <% @profiles.each do |prof| %>
+    <div>
+      <%= link_to profile_path(prof.id) do %>
+        <div>nickname: <%= prof.nickname %></div>
+        <div>place: <%= prof.place %></div>
+        <div>elo: <%= prof.elo %></div>
+      <% end %>
+      <br/>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,23 @@
+<div>
+  <h1>Friend requests</h1>
+
+  <h3>Incoming</h3>
+
+  <% @incoming.each do |request| %>
+    <div class="d-flex">
+      <%= link_to profile_path(request.profile.id) do %>
+        <%= request.profile.nickname %>
+      <% end %>
+      <%= button_to 'Accept request', profile_friend_request_path(id: request.id), method: :patch, class: 'text' %>
+    </div>
+  <% end %>
+
+  <h3>Outcoming</h3>
+
+  <% @outgoing.each do |request| %>
+    <%= link_to profile_path(request.friend.id) do %>
+      <%= request.friend.nickname %>
+    <% end %>
+    <div><%= button_to 'Cancel request', profile_friend_request_path(id: request.id), data: { turbo_confirm: "Are you sure?" }, class: 'text', method: :delete %></div>
+  <% end %>
+</div>

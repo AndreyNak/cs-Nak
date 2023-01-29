@@ -31,7 +31,7 @@ module Admin
 
       @map = Map.new(maps_params)
       if @map.save
-        redirect_to admin_maps_path
+        redirect_to action: :show
       else
         render :new, status: :unprocessable_entity
       end
@@ -43,7 +43,7 @@ module Admin
       @map = Map.find(params[:id])
 
       if @map.update(maps_params)
-        redirect_to admin_maps_path
+        redirect_to action: :show
       else
         render :edit, status: :unprocessable_entity
       end

@@ -11,7 +11,7 @@ module Admin
     def show
       authorize Lesson
 
-      @lesson = Lesson.find(params[:id])
+      render locals: { lesson: resource_lesson }
     end
 
     def new
@@ -23,7 +23,7 @@ module Admin
     def edit
       authorize Lesson
 
-      @lesson = Lesson.find(params[:id])
+      render locals: { lesson: resource_lesson }
     end
 
     def create
@@ -40,10 +40,8 @@ module Admin
     def update
       authorize Lesson
 
-      @lesson = Lesson.find(params[:id])
-
-      if @lesson.update(lesson_params)
-        redirect_to admin_lesson_path(@lesson.id)
+      if resource_lesson.update(lesson_params)
+        redirect_to admin_lesson_path(resource_lesson.id)
       else
         render :edit, status: :unprocessable_entity
       end
@@ -53,6 +51,10 @@ module Admin
 
     def lesson_params
       params[:lesson].permit(:title, :content)
+    end
+
+    def resource_lesson
+      @resource_lesson ||= Lesson.find(params[:id])
     end
   end
 end
