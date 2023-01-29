@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
+  factory :friend_request do
+    profile { nil }
+    friend { nil }
+  end
+
   factory :mode do
     name { Faker::Name.name }
     description { Faker::Lorem.paragraph }

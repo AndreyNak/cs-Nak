@@ -16,10 +16,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :profiles, only: %i[show]
+  resources :profiles, only: %i[show edit update] do
+    get 'find_friens', to: 'profiles#index'
+    post 'friendship', on: :member
+
+    resources :friends, controller: 'profiles/friends', only: %i[index destroy]
+    resources :friend_requests, controller: 'profiles/friend_requests', only: %i[index update destroy show]
+  end
   resources :lessons, only: %i[index show]
 
-  # get '/*path' => 'home#index'
   get '/home', to: 'home#index'
   root to: 'home#index'
 end

@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
-  helper_method :profile
+  helper_method :current_profile
 
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: ->(e) { server_error(e) }
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     render template: "errors/#{status}", layout: 'application', status:
   end
 
-  def profile
+  def current_profile
     current_user.profile
   end
 end
