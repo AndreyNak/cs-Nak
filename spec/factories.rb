@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :friend_request do
-    profile { nil }
-    friend { nil }
-  end
-
   factory :mode do
     name { Faker::Name.name }
     description { Faker::Lorem.paragraph }
@@ -24,5 +19,10 @@ FactoryBot.define do
 
   factory :map do
     name { 'de_dust2' }
+  end
+
+  factory :lesson do
+    title { Faker::Name.name }
+    content { "<p> #{Faker::Lorem.paragraph}</p>" }
   end
 end
