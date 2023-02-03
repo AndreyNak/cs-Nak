@@ -8,6 +8,8 @@ RSpec.describe Mode, type: :model do
   let(:server) { build(:server, count_users: 10, map:) }
   let(:map) { build(:map) }
 
+  it { is_expected.to be_valid }
+
   describe '#count_users' do
     subject { mode.count_users }
 
