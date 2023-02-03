@@ -3,7 +3,7 @@
 require_relative 'seeds/data'
 require_relative 'seeds/utils'
 
-generate_user
+generate_users
 generate_lessons
 
 maps_data.each do |params|

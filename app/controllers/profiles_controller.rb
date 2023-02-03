@@ -17,6 +17,16 @@ class ProfilesController < ApplicationController
     render locals: { profile: resource_profile }
   end
 
+  def update
+    authorize resource_profile
+
+    if resource_profile.update(profile_params)
+      redirect_to action: :show
+    else
+      render :edit, status: :unprocessable_entity, locals: { profile: resource_profile }
+    end
+  end
+
   def friendship
     authorize resource_profile
 
@@ -32,5 +42,9 @@ class ProfilesController < ApplicationController
 
   def resource_profile
     @resource_profile ||= Profile.find(params[:id])
+  end
+
+  def profile_params
+    params[:profile].permit(:avatar)
   end
 end

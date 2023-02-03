@@ -1,0 +1,56 @@
+<div class="profile-header">
+  <!-- test data -->
+  <%- xp =   1706.0 / 3000.0  * 100 %>
+  <!-- test data -->
+  <div class="content">
+    <div class="info">
+      <%= image_tag  profile.avatar, class: 'avatar' %>
+      <div>
+        <div class="d-flex  gap-3 align-items-center">
+          <h3 class="nickname"><%= profile.nickname %></h3>
+          <div class="online">Was in game - 2 month ago</div>
+        </div>
+        <div class="xp-bar">
+          <div class="main-bar">
+            <%= content_tag :div, '', style: "width: #{xp}%", class: 'progress-bar' %>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="me-1">1706<span class="text-muted">/3000XP</span></div>
+          <div class="text-muted">(Level 3)</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <nav class="menu">
+        <ul>
+          <%= link_to profile_path(profile.id) do %>
+            <% content_tag :li,  class: "#{profile_tab(params) == 'profile' && 'active'}"  do %>
+              <span>PROFILE</span>
+            <% end %>
+          <% end %>
+          <%= link_to profile_friends_path(profile.id) do %>
+            <% content_tag :li,  class: "#{profile_tab(params) == 'friends' && 'active'}"  do %>
+              <span>FRIENDS</span>
+            <% end %>
+          <% end%>
+          <%= link_to '#' do %>
+            <li><span>INVENTORY</span></li>
+          <% end%>
+          <%= link_to '#' do %>
+            <li><span>SKINCHANGER</span></li>
+          <% end%>
+          <%= link_to '#' do %>
+            <li><span>ACHIEVEMENTS</span></li>
+          <% end%>
+          <%= link_to '#' do %>
+            <li><span>CONFIGS</span></li>
+          <% end%>
+          <%= link_to '#' do %>
+            <li><span>SETTINGS</span></li>
+          <% end%>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

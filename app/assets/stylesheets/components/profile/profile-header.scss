@@ -1,0 +1,90 @@
+.profile-header {
+  position: relative;
+  padding: 0;
+  height: 330px;
+  background: rgb(56,64,83);
+  background: linear-gradient(0deg, rgba(15,20,27,1) 5%, rgba(114,121,114,0) 150%)
+    ,url('https://cybershoke.net/storage/images/p_background/de_dust2_b.jpg');
+  border-bottom: 1px solid #0c0f15;
+
+
+  .content {
+    position: absolute;
+    bottom: 0;
+
+    .info {
+      display: flex;
+      align-items: center;
+
+      .avatar {
+        width: 128x;
+        height: 128px;
+        background: #2f3a4b;
+        border-radius: 50%;
+        margin-right: 32px;
+        margin-left: 24px;
+      }
+
+      .nickname {
+        font-weight: 700;
+        font-size: 40px;
+        color: #aecce4;
+      }
+
+      .online {
+        opacity: 0.7;
+      }
+
+      .xp-bar {
+        margin: 10px 0;
+
+        .main-bar {
+          position: relative;
+          height: 7px;
+          background-color: black;
+          opacity: 0.5;
+          width: 160%;
+          z-index: 4;
+          border-radius: 5px;
+
+          .progress-bar {
+            position: absolute;
+            height: 7px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            z-index: 5;
+          }
+        }
+      }
+    }
+
+    .menu {
+      margin-top: 20px;
+
+      ul {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        a {
+         text-decoration: none;
+
+          li {
+            cursor: pointer;
+            text-decoration: none;
+            height: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #94a7b7;
+            padding: 0 29px;
+          }
+        }
+
+        li.active {
+          border-bottom: 3px solid #6080ff;
+        }
+      }
+    }
+  }
+}

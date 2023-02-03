@@ -32,10 +32,9 @@
           </div>
           <div class="menu" id="menu">
             <div class="header">
-              <div class="avatar">
-              </div>
+              <%= image_tag  current_profile.avatar, class: 'avatar' %>
               <%= link_to profile_path(current_profile.id), class: 'info' do %>
-                <span class="nick">Null</span>
+                <span class="nick"><%= current_profile.nickname %></span>
                 <span class="text">Go to profile</span>
               <% end %>
             </div>

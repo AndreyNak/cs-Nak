@@ -2,7 +2,7 @@
 
 class LessonPolicy < ApplicationPolicy
   def index?
-    login? && user.user_role.admin?
+    login? && admin?
   end
 
   def show?

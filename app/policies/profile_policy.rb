@@ -2,7 +2,11 @@
 
 class ProfilePolicy < ApplicationPolicy
   def edit?
-    me?
+    me? || admin?
+  end
+
+  def update?
+    me? || admin?
   end
 
   def friendship?

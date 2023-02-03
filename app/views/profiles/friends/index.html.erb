@@ -1,19 +1,22 @@
 <div>
-  <h1><%= link_to '< Back', profile_path(params[:profile_id]), class: 'text text-decoration-none' %></h1>
-  <h1>Friends</h1>
-  <% if @friends.size.zero? %>
-    <h1>No friends? Let's find them!</h1>
-    <%= link_to 'friend reqiests', profile_friend_requests_path(current_profile) %>
-  <% else%>
-    <div>
-      <% @friends.each do |friend| %>
-        <div class="d-flex">
-          <%= link_to friend.nickname, profile_path(friend) %>
-          <% if policy(friend).unfriend? %>
-            <%= button_to 'Unfriend', profile_friend_path(id: friend), method: :delete %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render partial:  'profiles/shared/profile_header', locals: { profile: current_profile } %>
+  <div>
+    <h1>Friends</h1>
+    <% if @friends.size.zero? %>
+      <h1>No friends? Let's find them!</h1>
+      <%= link_to 'friend reqiests', profile_friend_requests_path(current_profile) %>
+    <% else%>
+      <div>
+        <% @friends.each do |friend| %>
+          <div class="d-flex">
+            <%= link_to friend.nickname, profile_path(friend) %>
+            <% if policy(friend).unfriend? %>
+              <%= button_to 'Unfriend', profile_friend_path(id: friend), method: :delete %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
 </div>

@@ -56,4 +56,8 @@ class ApplicationPolicy
   def login?
     user
   end
+
+  def admin?
+    user.user_role.name == 'admin'
+  end
 end

@@ -3,6 +3,8 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
+  after_action :update_user_online, if: :user_signed_in?
+
   helper_method :current_profile
 
   unless Rails.application.config.consider_all_requests_local
@@ -31,5 +33,9 @@ class ApplicationController < ActionController::Base
 
   def current_profile
     current_user.profile
+  end
+
+  def update_user_online
+    current_user.try :touch
   end
 end

@@ -8,18 +8,31 @@ def generate_lessons
   end
 end
 
-def generate_user
+def generate_users
   default_user_password = 'Password123??'
 
-  role = UserRole.create(name: 'admin')
+  admin = UserRole.create(name: 'admin')
+  user = UserRole.create(name: 'user')
 
-  user = User.new(
-    emain: 'email.admin@gmail.com',
-    user_role: role,
-    password: default_user_password,
-    password_confirmation: default_user_password
-  )
+  data = [
+    {
+      emain: 'email.admin@gmail.com',
+      user_role: admin,
+      password: default_user_password,
+      password_confirmation: default_user_password
+    },
+    {
+      emain: 'email.user@gmail.com',
+      user_role: user,
+      password: default_user_password,
+      password_confirmation: default_user_password
+    }
+  ]
 
-  user.create_profile(nickname: 'Null', place: 1)
-  user.save
+  data.each_with_index do |params, index|
+    user = User.new(params)
+
+    user.create_profile(nickname: Faker::Name.middle_name, place: index + 1)
+    user.save
+  end
 end
